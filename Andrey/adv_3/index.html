@@ -4,14 +4,29 @@
 	<title>Advanced 3</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
-<div id="letsPlay"></div>
+<body id ="theBody">
+<div id="letsPlay" onclick="dynamicColors()"><p>Click the circle</p></div>
 
 <script>
 
-	function dynamicColors {
+	dynamicColors2();
+	
+	function dynamicColors() {
+		var number1 = Math.floor(Math.random()*255);
+		var number2 = Math.floor(Math.random()*255);
+		var number3 = Math.floor(Math.random()*255);
+		color=`rgb(${number1}, ${number2}, ${number3})`;
+		var theSquare = document.getElementById("letsPlay");
+		theSquare.style.backgroundColor = color;
+	}
 
-
+	function dynamicColors2() {
+		var number1 = Math.floor(Math.random()*255);
+		var number2 = Math.floor(Math.random()*255);
+		var number3 = Math.floor(Math.random()*255);
+		color=`rgb(${number1}, ${number2}, ${number3})`;
+		var theBody = document.getElementById("theBody");
+		theBody.style.backgroundColor = color;
 	}
 </script>
 </body>

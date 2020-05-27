@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Challenge(Roll the dice)</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="containerBig">
+<div id="container">
+	<div id="leftHalf">
+		<div class= "header">
+			<p id="player1">aaaa</p>
+		</div>
+		<div class= "roll">
+			<button id="firstPlayerButton" onclick="rollItNow(event)" type="">Roll the dice</button>
+		</div>
+		<div class= "number">
+			<p id="dice1player1">#1: </p>
+		</div>
+		<div class= "number">
+			<p id="dice2player1">#2: </p>
+		</div>
+		<div class= "number">
+			<p id="dice3player1">#3: </p>
+		</div>
+		<div class= "sum">
+			<p id="totalPlayer1">total: </p>
+		</div>
+
+	</div>
+	<div id="between">
+	</div>
+	<div id="rightHalf">
+		<div class= "header">
+			<p id="player2">bbbbb</p>
+		</div>
+		<div class= "roll">
+			<button id ="secondPlayerButton" onclick="rollItNow2()" type="">Roll the dice</button>
+		</div>
+		<div class= "number">
+			<p id="dice1player2">#1: </p>
+		</div>
+		<div class= "number">
+			<p id="dice2player2">#2: </p>
+		</div>
+		<div class= "number">
+			<p id="dice3player2">#3: </p>
+		</div>
+		<div class="total">
+			<p id="totalPlayer2">total: </p>
+		</div>
+	</div>
+
+</div>
+<div id="bellowContainer">
+		<p id="winner">winner:</p>
+	</div>
+</div>
+
+	
+
+
+<script>
+
+dynamicColors2()
+	
+var username1 = prompt("Enter name of first player");
+var username2 = window.prompt('Enter name of competitor');
+
+var player1  = document.getElementById("player1");
+var player2  = document.getElementById("player2");
+player1.innerHTML = username1;
+player2.innerHTML = username2;
+
+function rollItNow(event) {
+	var firstNumber = Math.round(Math.random()*6);
+	var secondNumber = Math.round(Math.random()*6);
+	var thirdNumber = Math.round(Math.random()*6);
+	var total = firstNumber + secondNumber + thirdNumber;
+	var dice1player1 = document.getElementById("dice1player1");
+	var dice2player1 = document.getElementById("dice2player1");
+	var dice3player1 = document.getElementById("dice3player1");
+	var totalPlayer1 = document.getElementById("totalPlayer1");
+	dice1player1.innerHTML = "#1:  " + firstNumber;
+	dice2player1.innerHTML = "#2:  " + secondNumber;
+	dice3player1.innerHTML = "#3:  " + thirdNumber;
+	totalPlayer1.innerHTML = "total:  " + total;
+
+}
+
+function rollItNow2() {
+	var firstNumber = Math.round(Math.random()*6);
+	var secondNumber = Math.round(Math.random()*6);
+	var thirdNumber = Math.round(Math.random()*6);
+	var total = firstNumber + secondNumber + thirdNumber;
+	var dice1player2 = document.getElementById("dice1player2");
+	var dice2player2 = document.getElementById("dice2player2");
+	var dice3player2 = document.getElementById("dice3player2");
+	var totalPlayer2 = document.getElementById("totalPlayer2");
+	dice1player2.innerHTML = "#1:  " + firstNumber;
+	dice2player2.innerHTML = "#2:  " + secondNumber;
+	dice3player2.innerHTML = "#3:  " + thirdNumber;
+	totalPlayer2.innerHTML = "total:  " + total;
+
+	
+	theWinner();
+
+}
+
+function theWinner() {
+
+	var player1  = document.getElementById("player1").innerHTML;
+	var player2  = document.getElementById("player2").innerHTML;
+
+	var pl1total = document.getElementById("totalPlayer1").innerHTML;
+	var pl2total = document.getElementById("totalPlayer2").innerHTML;
+
+	var winner = document.getElementById("winner");
+
+	if (pl1total>pl2total) {
+		winner.innerHTML ="WINNER: " + player1;
+	} 
+
+	if (pl1total<pl2total) {
+		winner.innerHTML ="WINNER: " + player2;
+	}
+	if (pl1total==pl2total) {
+		winner.innerHTML = "IT'S ADRAW"
+	}
+}
+
+	function dynamicColors2() {
+		var number1 = Math.floor(Math.random()*255);
+		var number2 = Math.floor(Math.random()*255);
+		var number3 = Math.floor(Math.random()*255);
+		color=`rgb(${number1}, ${number2}, ${number3})`;
+		var theBody = document.getElementById("containerBig");
+		theBody.style.backgroundColor = color;
+	}
+
+</script>
+
+</body>
+</html>
