@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Intermediate 2</title>
+</head>
+<body>
+
+<form>
+  Enter Math grade:
+  <input type="number" size="12" id="math" required><br />
+  Enter Physics grade:
+  <input type="number" size="12" id="phys" required><br />
+  Enter English grade:
+  <input type="number" size="12" id="eng" required><br />
+  <input type="submit" onclick="saveData();" />
+</form>
+
+<script>
+
+function saveData() {
+  var mathGrade = parseInt(document.getElementById('math').value);
+  var physGrade = parseInt(document.getElementById('phys').value);
+  var engGrade = parseInt(document.getElementById('eng').value);
+
+  document.write(`Math grade is ${mathGrade} <br> Math grade is ${physGrade} <br> Math grade is ${engGrade} <br> <br> `)
+
+  var sum = mathGrade + physGrade + engGrade;
+  var average = sum/3;
+
+   document.write(`The sum of the grades is ${sum} <br> The average grade is ${average} `)
+}
+</script>
+</body>
+</html>

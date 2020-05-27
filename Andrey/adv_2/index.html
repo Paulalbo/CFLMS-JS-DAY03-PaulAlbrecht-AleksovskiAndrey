@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Advanced 2</title>
+</head>
+<body>
+<script>
+
+	dateConverter("Feb 23, 2017");
+	
+function dateConverter(currentDate) {
+	var date1 = new Date(currentDate);
+	date1.setDate(date1.getDate() - 1);
+	 date1 = date1.toDateString();
+	// date1.slice(0)
+//	var day = date1.getDay();
+//	var month = date1.getMonth();
+//	var date31 = date1.getDate();
+//	var year = date1.getFullYear();
+	
+
+	//dateFormat(date1, "dddd, mmmm dS, yyyy");
+	document.write(`${date1}`);
+	//document.write(`${day} ${month} ${date31} ${year} `);
+}
+</script>
+</body>
+</html>

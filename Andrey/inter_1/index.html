@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Intermediate 1</title>
+</head>
+<body>
+<script>
+
+ var stringy = function(text) {
+
+ 	var firstLetter = text.charAt(0);
+ 	firstLetter = firstLetter.toUpperCase();
+ 	text = text.slice(1);
+ 	text = firstLetter + text;
+ 	document.write(`${text}`);
+ }
+
+ stringy("i am a web developer");
+ 
+</script>
+</body>
+</html>
