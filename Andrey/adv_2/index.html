@@ -10,9 +10,12 @@
 	
 function dateConverter(currentDate) {
 	var date1 = new Date(currentDate);
+//	document.write(`${date1} <br>`);
 	date1.setDate(date1.getDate() - 1);
+//	document.write(`${date1} <br>`);
 	 date1 = date1.toDateString();
-	// date1.slice(0)
+
+// date1.slice(0)
 //	var day = date1.getDay();
 //	var month = date1.getMonth();
 //	var date31 = date1.getDate();

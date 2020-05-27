@@ -24,7 +24,8 @@
 			<p id="dice3player1">#3: </p>
 		</div>
 		<div class= "sum">
-			<p id="totalPlayer1">total: </p>
+			<p>total: </p>
+			<p id="totalPlayer1"></p>
 		</div>
 
 	</div>
@@ -46,8 +47,9 @@
 		<div class= "number">
 			<p id="dice3player2">#3: </p>
 		</div>
-		<div class="total">
-			<p id="totalPlayer2">total: </p>
+		<div class="sum">
+			<p>total: </p>
+			<p id="totalPlayer2"></p>
 		</div>
 	</div>
 
@@ -73,9 +75,9 @@ player1.innerHTML = username1;
 player2.innerHTML = username2;
 
 function rollItNow(event) {
-	var firstNumber = Math.round(Math.random()*6);
-	var secondNumber = Math.round(Math.random()*6);
-	var thirdNumber = Math.round(Math.random()*6);
+	var firstNumber = Math.round(Math.random()*5) +1;
+	var secondNumber = Math.round(Math.random()*5) +1;
+	var thirdNumber = Math.round(Math.random()*5) +1;
 	var total = firstNumber + secondNumber + thirdNumber;
 	var dice1player1 = document.getElementById("dice1player1");
 	var dice2player1 = document.getElementById("dice2player1");
@@ -84,14 +86,14 @@ function rollItNow(event) {
 	dice1player1.innerHTML = "#1:  " + firstNumber;
 	dice2player1.innerHTML = "#2:  " + secondNumber;
 	dice3player1.innerHTML = "#3:  " + thirdNumber;
-	totalPlayer1.innerHTML = "total:  " + total;
+	totalPlayer1.innerHTML = total;
 
 }
 
 function rollItNow2() {
-	var firstNumber = Math.round(Math.random()*6);
-	var secondNumber = Math.round(Math.random()*6);
-	var thirdNumber = Math.round(Math.random()*6);
+	var firstNumber = Math.round(Math.random()*5) +1;
+	var secondNumber = Math.round(Math.random()*5) +1;
+	var thirdNumber = Math.round(Math.random()*5) +1;
 	var total = firstNumber + secondNumber + thirdNumber;
 	var dice1player2 = document.getElementById("dice1player2");
 	var dice2player2 = document.getElementById("dice2player2");
@@ -100,7 +102,7 @@ function rollItNow2() {
 	dice1player2.innerHTML = "#1:  " + firstNumber;
 	dice2player2.innerHTML = "#2:  " + secondNumber;
 	dice3player2.innerHTML = "#3:  " + thirdNumber;
-	totalPlayer2.innerHTML = "total:  " + total;
+	totalPlayer2.innerHTML = total;
 
 	
 	theWinner();
@@ -112,20 +114,26 @@ function theWinner() {
 	var player1  = document.getElementById("player1").innerHTML;
 	var player2  = document.getElementById("player2").innerHTML;
 
-	var pl1total = document.getElementById("totalPlayer1").innerHTML;
-	var pl2total = document.getElementById("totalPlayer2").innerHTML;
+	var pl1total = parseInt(document.getElementById("totalPlayer1").innerHTML);
+	var pl2total = parseInt(document.getElementById("totalPlayer2").innerHTML);
+	//var pl1totalInt = parseInt(pl1total);
+	//var pl2totalInt = parseInt(pl2total);
+	console.log(pl1total);
+	console.log(pl2total);
+	console.log(typeof pl1total);
+	console.log(typeof pl2total);
 
 	var winner = document.getElementById("winner");
 
-	if (pl1total>pl2total) {
-		winner.innerHTML ="WINNER: " + player1;
-	} 
-
-	if (pl1total<pl2total) {
-		winner.innerHTML ="WINNER: " + player2;
-	}
-	if (pl1total==pl2total) {
-		winner.innerHTML = "IT'S ADRAW"
+	if (pl1total > pl2total) {
+		console.log(`pl1total>pl2total`);
+		winner.innerHTML ="winner: " + player1;
+	} else if (pl1total < pl2total) {
+		console.log(`pl1total<pl2total`);
+		winner.innerHTML ="winner: " + player2;
+	} else {
+		console.log(`pl1total=pl2total`);
+		winner.innerHTML = "IT'S A DRAW"
 	}
 }
 

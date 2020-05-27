@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+​
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+    	#p2-dice{
+    		display: none;
+    	}
+    </style>
+</head>
+​
+<body>
+	<div id="wrapper">
+​
+		<div class="playground1">
+			<h2 id="player1"> 			</h2>
+			
+			<button type="submit" id="p1-dice" onclick="RoleTheDiceP1()">DICE!!</button>
+			<div id="result-p1">Your throw:  </div>
+		</div>
+​
+​
+		<div class="playground2">
+			<h2 id="player2"> 			</h2>
+​
+			<button type="submit" id="p2-dice" onclick="RoleTheDiceP2()">DICE!!</button>
+			<div id="result-p2">Your throw: </div>
+			
+		</div>
+​
+	</div>
+​
+    <script type="text/javascript">
+​
+   
+		var player1 = prompt("PLAYER 1 - Please enter your name"); 
+   		var player2 = prompt("PLAYER 2 - Please enter your name"); 
+   		var i = 1;
+   		var z = 1;
+   		var totalP1 = 0;
+   		var totalP2 = 0;
+​
+​
+   		function getPlayerNames() {
+		 	document.getElementById("player1").innerHTML = player1;
+		 	document.getElementById("player2").innerHTML = player2;
+		 	console.log(player1, player2);
+	 	}
+	 	getPlayerNames()
+​
+	 	function RoleTheDiceP1(){
+	 		if(i <= 3){
+	 			var role = singleDice();
+	 			document.getElementById("result-p1").innerHTML += " "+role+"<br>";
+	 			i++;
+	 			totalP1 += role;
+		 		document.getElementById('p1-dice').style.display= "none";
+		 		document.getElementById('p2-dice').style.display= "block";
+	 		}
+​
+	 		
+	 	}
+​
+	 	function RoleTheDiceP2(){
+	 		if(z <= 3){
+	 			var role = singleDice();
+	 			document.getElementById("result-p2").innerHTML += " "+role+"<br>";
+	 			z++;
+	 			totalP2 += role;
+		 		document.getElementById('p1-dice').style.display= "block";
+		 		document.getElementById('p2-dice').style.display= "none";
+	 		}
+	 		if(i ==4){
+	 			document.getElementById('p1-dice').style.display= "none";
+	 			result()
+	 		}
+	 		
+	 	}
+​
+	 	function result(){
+	 		if(totalP1 > totalP2){
+	 			alert(player1 + " WON!")
+	 		}else if(totalP1 == totalP2){
+	 			alert("DROW!")
+	 		}else {
+	 			alert(player2 + " WON!")
+	 		}
+	 	}
+​
+​
+    function singleDice(){
+		return Math.floor(Math.random()*6+1);
+	}
+​
+​
+​
+​
+    </script>
+</body>
+​
+</html>
